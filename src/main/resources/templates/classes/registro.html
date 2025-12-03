@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: content">
+
+<div class="card">
+    <div class="card-header">
+        <h3>Registrar Clase</h3>
+    </div>
+
+    <div class="card-body">
+
+        <form th:action="@{/clases/guardar}" th:object="${classSchedule}" method="post">
+
+            <div class="mb-3">
+                <label>Fecha</label>
+                <input type="date" th:field="*{date}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Hora</label>
+                <input type="time" th:field="*{time}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Nivel</label>
+                <select th:field="*{level}" class="form-control">
+                    <option>Básico</option>
+                    <option>Intermedio</option>
+                    <option>Avanzado</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Instructor</label>
+                <select th:field="*{instructor.id}" class="form-control" required>
+                    <option th:each="ins : ${instructors}"
+                            th:value="${ins.id}"
+                            th:text="${ins.firstName + ' ' + ins.lastName}">
+                    </option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary">Guardar</button>
+
+        </form>
+
+    </div>
+</div>
+
+</html>

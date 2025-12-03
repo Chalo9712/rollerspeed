@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: content}">
+<div>
+
+    <h2 class="mb-3">Registrar Instructor</h2>
+
+    <form th:action="@{/instructors}" th:object="${instructor}" method="post">
+
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input class="form-control" type="text" th:field="*{firstName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Apellido</label>
+            <input class="form-control" type="text" th:field="*{lastName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Especialidad</label>
+            <input class="form-control" type="text" th:field="*{expertise}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" type="email" th:field="*{email}">
+        </div>
+
+        <div class="mb-3">
+            <label>Teléfono</label>
+            <input class="form-control" type="text" th:field="*{phone}">
+        </div>
+
+        <button class="btn btn-success" type="submit">Guardar</button>
+        <a class="btn btn-secondary" href="/instructors">Cancelar</a>
+
+    </form>
+
+</div>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: content}">
+<div>
+
+    <h2 class="mb-3">Listado de Estudiantes</h2>
+
+    <a class="btn btn-primary mb-3" href="/students/new">Registrar Estudiante</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Inscripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${students}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.firstName + ' ' + s.lastName}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.phone}"></td>
+                <td th:text="${s.enrollmentDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</html>

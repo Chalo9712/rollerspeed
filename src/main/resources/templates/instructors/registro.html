@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: content">
+
+<div class="card">
+    <div class="card-header">
+        <h3>Registro de Instructor</h3>
+    </div>
+
+    <div class="card-body">
+        <form th:action="@{/instructores/guardar}" th:object="${instructor}" method="post">
+
+            <div class="mb-3">
+                <label>Nombre</label>
+                <input type="text" th:field="*{firstName}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Apellido</label>
+                <input type="text" th:field="*{lastName}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Especialidad</label>
+                <input type="text" th:field="*{specialty}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>Teléfono</label>
+                <input type="text" th:field="*{phone}" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>Fecha de Contratación</label>
+                <input type="date" th:field="*{hireDate}" class="form-control">
+            </div>
+
+            <button class="btn btn-primary" type="submit">Registrar</button>
+        </form>
+    </div>
+</div>
+
+</html>
