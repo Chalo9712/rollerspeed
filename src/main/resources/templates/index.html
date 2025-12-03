@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout/base :: content">
 
-<!-- Insertar el layout y reemplazar el fragmento -->
-<div th:replace="layout/base :: content">
-    
+<div class="text-center">
     <h1>Bienvenido a Roller Speed</h1>
-    <p>Esta es la página principal.</p>
-
+    <p>Selecciona una opción del menú para comenzar.</p>
 </div>
 
 </html>

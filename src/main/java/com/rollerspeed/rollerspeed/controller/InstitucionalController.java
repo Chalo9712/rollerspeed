@@ -2,36 +2,33 @@ package com.rollerspeed.rollerspeed.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class PageController {
+@RequestMapping("/institucional")
+public class InstitucionalController {
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
-
-    @GetMapping("/institucional/mision")
+    @GetMapping("/mision")
     public String mision() {
         return "institucional/mision";
     }
 
-    @GetMapping("/institucional/vision")
+    @GetMapping("/vision")
     public String vision() {
         return "institucional/vision";
     }
 
-    @GetMapping("/institucional/valores")
+    @GetMapping("/valores")
     public String valores() {
         return "institucional/valores";
     }
 
-    @GetMapping("/institucional/servicios")
+    @GetMapping("/servicios")
     public String servicios() {
         return "institucional/servicios";
     }
 
-    @GetMapping("/institucional/eventos")
+    @GetMapping("/eventos")
     public String eventos() {
         return "institucional/eventos";
     }
