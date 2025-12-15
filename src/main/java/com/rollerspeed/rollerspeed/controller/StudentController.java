@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/students")   // prefijo para todas las rutas
+@RequestMapping("/students")
 public class StudentController {
 
     private final StudentService studentService;
@@ -16,24 +16,24 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    // ✔ Mostrar lista de estudiantes
+    // LISTAR
     @GetMapping
     public String listStudents(Model model) {
-        model.addAttribute("students", studentService.getAllStudents());
-        return "students/list";   // templates/students/list.html
+        model.addAttribute("students", studentService.findAll());
+        return "students/list";
     }
 
-    // ✔ Mostrar formulario de registro
+    // FORMULARIO
     @GetMapping("/new")
     public String showForm(Model model) {
         model.addAttribute("student", new Student());
-        return "students/form";   // templates/students/form.html
+        return "students/form";
     }
 
-    // ✔ Guardar estudiante
+    // GUARDAR
     @PostMapping
     public String saveStudent(@ModelAttribute Student student) {
-        studentService.saveStudent(student);
-        return "redirect:/students"; // volver al listado
+        studentService.save(student);
+        return "redirect:/students";
     }
 }

@@ -17,12 +17,23 @@ public class InstructorServiceImpl implements InstructorService {
     }
 
     @Override
-    public List<Instructor> getAllInstructors() {
+    public Instructor save(Instructor instructor) {
+        return instructorRepository.save(instructor);
+    }
+
+    @Override
+    public List<Instructor> findAll() {
         return instructorRepository.findAll();
     }
 
     @Override
-    public Instructor saveInstructor(Instructor instructor) {
-        return instructorRepository.save(instructor);
+    public Instructor findById(Long id) {
+        return instructorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Instructor no encontrado con id: " + id));
+    }
+
+    @Override
+    public void delete(Long id) {
+        instructorRepository.deleteById(id);
     }
 }
